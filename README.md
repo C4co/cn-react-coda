@@ -6,7 +6,12 @@
   CN React Coda
 </h1>
 
+[![Build Status](https://travis-ci.com/C4co/cn-react-coda.svg?branch=master)](https://travis-ci.com/C4co/cn-react-coda)
+[![Coverage Status](https://coveralls.io/repos/github/C4co/cn-react-coda/badge.svg?branch=master)](https://coveralls.io/github/C4co/cn-react-coda?branch=master)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+
 > A simple react component to write code snipets
+
 
 ### Install
 ```
