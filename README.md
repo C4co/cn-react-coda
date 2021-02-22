@@ -8,6 +8,7 @@
 
 [![Build Status](https://travis-ci.com/C4co/cn-react-coda.svg?branch=master)](https://travis-ci.com/C4co/cn-react-coda)
 [![Coverage Status](https://coveralls.io/repos/github/C4co/cn-react-coda/badge.svg?branch=master)](https://coveralls.io/github/C4co/cn-react-coda?branch=master)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/5367261f37c44d5eb932dbcb49c61990)](https://www.codacy.com/gh/C4co/cn-react-coda/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=C4co/cn-react-coda&amp;utm_campaign=Badge_Grade)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 > A simple react component to write code snipets
