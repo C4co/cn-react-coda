@@ -3,7 +3,7 @@ import { Coda } from "cn-react-coda"
 import styled, { css, ThemeProvider } from "styled-components"
 import LOGO_LIGHT from "./assets/logo-light.svg"
 import LOGO_DARK from "./assets/logo-dark.svg"
-import { USAGE, HTML_XML, CSS, JAVASCRIPT, RUBY, PHP } from "./examples"
+import { USAGE, HTML_XML, CSS, JAVASCRIPT, RUBY, PHP, C_PLUS_PLUS } from "./examples"
 import { BiCheck } from "react-icons/bi"
 
 const Container = styled.div`
@@ -19,7 +19,7 @@ const Container = styled.div`
 const Content = styled.div`
   max-width: 800px;
   width: 100%;
-  padding: 30px 10px 50px 10px;
+  padding: 50px 10px 50px 10px;
   margin: 0 auto;
 `
 
@@ -43,7 +43,7 @@ const Description = styled.span`
 const Install = styled.div`
   text-align: center;
   padding: 10px;
-  font-size: 1.3em;
+  font-size: 1.7em;
 
   ${props => css`
     color: ${props.theme.INFO};
@@ -124,7 +124,7 @@ const dark = {
 
 const light = {
   THEME: "light",
-  BACKGROUND: "#f1f1f1",
+  BACKGROUND: "#eeeeee",
   TEXT: "#3a3a3a",
   INFO: "#0033ff",
   FEATURE: "#ffffff",
@@ -141,8 +141,6 @@ export default function App(){
   const [ theme, setTheme ] = useState(dark)
 
   function onThemeChange(){
-    console.log("Here!")
-
     if(theme.THEME === "light"){
       setTheme(dark)
     }
@@ -163,8 +161,6 @@ export default function App(){
           <Description>
             A simple react component to write code snipets
           </Description>
-
-          <br/>
 
           <Install>
             npm install cn-react-coda
@@ -202,6 +198,10 @@ export default function App(){
 
           <br/><br/>
 
+          <BigTitle> How to use? </BigTitle>
+
+          <br/>
+
           <Coda lang="html" theme={theme.CODA_THEME} title="usage.tsx" code={USAGE} />
 
           <br/><br/>
@@ -214,7 +214,7 @@ export default function App(){
             Check some examples
           </Description>
 
-          <br/><br/>
+          <br/>
 
           <Coda lang="html" theme={theme.CODA_THEME} title="example.html" code={HTML_XML} />
           <br/>
@@ -225,6 +225,8 @@ export default function App(){
           <Coda lang="ruby" theme={theme.CODA_THEME} title="example.rb" code={RUBY} />
           <br/>
           <Coda lang="php" theme={theme.CODA_THEME} title="example.php" code={PHP} />
+          <br/>
+          <Coda lang="c++" theme={theme.CODA_THEME} title="example.cpp" code={C_PLUS_PLUS} />
         </Content>
       </Container>
     </ThemeProvider>

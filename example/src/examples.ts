@@ -59,7 +59,7 @@ body, .usertext {
 export const JAVASCRIPT = `
 function $initHighlight(block, cls) {
   try {
-    if (cls.search(\/\\bno\-highlight\\b\/) != -1)
+    if (cls.search(\\bno-highlightb\\) != -1)
       return process(block, true, 0x0F) +\` class="\${cls}"\`;
   } catch (e) {
     /* handle exception */
@@ -146,4 +146,21 @@ __halt_compiler () ; datahere
 datahere
 datahere */
 datahere
+`
+
+export const C_PLUS_PLUS = `
+#include <iostream>
+
+int main(int argc, char *argv[]) {
+
+  /* An annoying "Hello World" example */
+  for (auto i = 0; i < 0xFFFF; i++)
+    cout << "Hello, World!" << endl;
+
+  char c = '\n';
+  unordered_map <string, vector<string> > m;
+  m["key"] = "\\\\"; // this is an error
+
+  return -2e3 + 12l;
+}
 `
