@@ -1,30 +1,60 @@
-# cn-react-coda
+<p align="center">
+  <img alt="react" src="https://i.imgur.com/DrE0cgt.png" width="100" />
+</p>
 
-> Simple component to document react components
+<h1 align="center">
+  CN React Coda
+</h1>
 
-[![NPM](https://img.shields.io/npm/v/cn-react-coda.svg)](https://www.npmjs.com/package/cn-react-coda) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+> A simple react component to write code snipets
 
-## Install
-
-```bash
-npm install --save cn-react-coda
+### Install
+```
+$ yarn add cn-react-helpers
 ```
 
-## Usage
+### Development
 
-```tsx
-import React, { Component } from 'react'
+Test
+```
+$ yarn test
+```
 
-import MyComponent from 'cn-react-coda'
-import 'cn-react-coda/dist/index.css'
+Build
+```
+$ yarn build
+```
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
+### How to use?
+
+```jsx
+import React from "react"
+import { Coda } from "cn-react-coda"
+
+const example = `
+  function fn(){
+    console.log("Hello world!")
   }
+`
+
+export default function App(){
+  return (
+    <Coda lang="js" theme="dark" title="example.js" code={example} />
+  )
 }
 ```
 
-## License
+### Properties
+
+| Name  | Type                 | Default | Required | Description                                                                                      |
+|-------|----------------------|---------|----------|--------------------------------------------------------------------------------------------------|
+| code  | string               | null    | yes      | Code snippet to be showed                                                                        |
+| title | string               | null    | no       | Snippet title                                                                                    |
+| theme | string (dark, light) | dark    | no       | Component theme                                                                                  |
+| lang  | string               | jsx     | no       | Snippet language, too see all suppport see [hightlight.js](https://highlightjs.org/static/demo/) |
+
+---
+
+### License
 
 MIT © [C4co](https://github.com/C4co)
