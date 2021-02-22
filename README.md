@@ -62,7 +62,7 @@ export default function App(){
 | **code**  | string               | null    | yes      | Code snippet to be showed                                                                        |
 | **title** | string               | null    | no       | Snippet title                                                                                    |
 | **theme** | string (dark, light) | dark    | no       | Component theme                                                                                  |
-| **lang**  | string               | jsx     | no       | Snippet language, too see all suppport see [hightlight.js](https://highlightjs.org/static/demo/) |
+| **lang**  | string               | jsx     | no       | Programing language, too see all suppport see [hightlight.js](https://highlightjs.org/static/demo/) |
 
 ### What's inside
 
