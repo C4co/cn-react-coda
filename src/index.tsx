@@ -1,9 +1,9 @@
 import "jetbrains-mono"
-import React, { useRef, useState } from "react"
-import styled, { css, ThemeProvider} from "styled-components"
+import React, {useRef, useState} from "react"
+import styled, {css, ThemeProvider} from "styled-components"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import {BiCode} from "react-icons/bi"
-import { DARK, LIGHT } from "./themes"
+import {DARK, LIGHT} from "./themes"
 
 const CodaContainer = styled.div`
   overflow: hidden;
@@ -13,18 +13,18 @@ const CodaContainer = styled.div`
     font-family: "JetBrains Mono" !important;
     background-color: none;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 18px;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
 
-  pre{
+  pre {
     border: none !important;
     line-height: 1.5em;
   }
 
-  ${props => css`
+  ${(props) => css`
     background-color: ${props.theme.BACKGROUND};
     border: solid ${props.theme.BORDERS} 1px;
   `}
@@ -41,7 +41,7 @@ const CodaTitle = styled.span`
   padding: 8px 14px 8px 14px;
   font-size: 15px;
 
-  ${props => css`
+  ${(props) => css`
     color: ${props.theme.TITLE};
     border-bottom: solid ${props.theme.BORDERS} 1px;
   `}
@@ -53,7 +53,7 @@ const CodaCode = styled(SyntaxHighlighter)`
   position: relative;
   border: none;
 
-  ${props => css`
+  ${(props) => css`
     background-color: ${props.theme.BACKGROUND} !important;
 
     &::-webkit-scrollbar {
@@ -73,7 +73,6 @@ const CodaCode = styled(SyntaxHighlighter)`
       font-weight: normal;
       max-width: 0px !important;
       font-style: normal !important;
-      border: solid transparent 1px;
     }
   `}
 `
@@ -89,7 +88,7 @@ const CodaFooter = styled.footer`
   justify-content: flex-end;
   padding: 8px;
 
-  ${props => css`
+  ${(props) => css`
     border-top: solid ${props.theme.BORDERS} 1px;
   `}
 `
@@ -103,7 +102,7 @@ const CodaInput = styled.textarea`
   right: 0px;
 `
 
-interface CodaCopyProps{
+interface CodaCopyProps {
   copied: boolean
 }
 
@@ -111,7 +110,7 @@ const CodaCopy = styled.button<CodaCopyProps>`
   border: none;
   font-weight: bold;
   border-radius: 2px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
   outline: none;
   font-size: 11px;
@@ -120,13 +119,15 @@ const CodaCopy = styled.button<CodaCopyProps>`
   align-items: center;
   padding: 5px 12px 4px 12px;
 
-  ${props => css`
+  ${(props) => css`
     background: ${props.theme.INFO};
   `}
 
-  ${props => props.copied && css`
-    background-color: ${props.theme.SUCCESS};
-  `}
+  ${(props) =>
+    props.copied &&
+    css`
+      background-color: ${props.theme.SUCCESS};
+    `}
 `
 
 interface CodaProps {
@@ -138,19 +139,19 @@ interface CodaProps {
 
 export function Coda(props: CodaProps) {
   const input = useRef<HTMLTextAreaElement>(null)
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState(false)
   let theme = DARK
 
-  if(props.theme === "light"){
+  if (props.theme === "light") {
     theme = LIGHT
   }
 
-  if(props.theme === "dark"){
+  if (props.theme === "dark") {
     theme = DARK
   }
 
-  function copyToClipboard(){
-    input.current?.select()
+  function copyToClipboard() {
+    input.current?.select() //eslint-disable-line
     document.execCommand("copy")
     setCopied(true)
 
@@ -165,8 +166,8 @@ export function Coda(props: CodaProps) {
         <CodaContent data-testid="coda-content">
           {props.title && (
             <CodaTitle data-testid="coda-title">
-              <CodaIcon />
-                {props.title}
+              <CodaIcon data-testid="coda-icon" />
+              {props.title}
             </CodaTitle>
           )}
 
@@ -178,13 +179,20 @@ export function Coda(props: CodaProps) {
             {props.code.trim()}
           </CodaCode>
 
-          <CodaFooter>
-            <CodaInput readOnly ref={input} value={props.code.trim()} />
-            <CodaCopy copied={copied} onClick={copyToClipboard}>
-              { copied ? "Copied!" : "Copy code" }
+          <CodaFooter data-testid="coda-footer">
+            <CodaInput
+              data-testid="coda-input"
+              readOnly
+              ref={input}
+              value={props.code.trim()}
+            />
+            <CodaCopy
+              data-testid="coda-copy"
+              copied={copied}
+              onClick={copyToClipboard}>
+              {copied ? "Copied!" : "Copy code"}
             </CodaCopy>
           </CodaFooter>
-
         </CodaContent>
       </CodaContainer>
     </ThemeProvider>
