@@ -12,11 +12,11 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: Ubuntu-20.04
 
     strategy:
       matrix:
-        node-version: [ 14 ]
+        node-version: [ 14.13.1 ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
