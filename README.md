@@ -13,6 +13,10 @@
 
 > A simple react component to write code snipets
 
+<p align="center">
+  <img width="700" src="https://i.imgur.com/Bwa0oa0.png"/>
+</p>
+
 
 ### Install
 ```
