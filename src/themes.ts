@@ -1,4 +1,4 @@
-import {vs, nightOwl} from "react-syntax-highlighter/dist/esm/styles/hljs"
+import {vs, nightOwl} from "react-syntax-highlighter/dist/cjs/styles/hljs"
 import {lighten, darken} from "polished"
 
 export const DARK = {
