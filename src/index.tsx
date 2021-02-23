@@ -10,7 +10,7 @@ const CodaContainer = styled.div`
   position: relative;
 
   * {
-    font-family: "JetBrains Mono" !important;
+    font-family: "JetBrains Mono", monospace !important;
     background-color: none;
     font-weight: normal;
     font-size: 18px;
