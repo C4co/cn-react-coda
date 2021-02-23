@@ -12,7 +12,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5367261f37c44d5eb932dbcb49c61990)](https://www.codacy.com/gh/C4co/cn-react-coda/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=C4co/cn-react-coda&amp;utm_campaign=Badge_Grade)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
-> A simple react component to write code snipets
+> A simple react component to write code snippets
 
 <p align="center">
   <img width="800" src="https://i.imgur.com/Bwa0oa0.png"/>
