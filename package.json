@@ -1,10 +1,13 @@
 {
-  "name": "cn-react-coda",
-  "version": "1.0.0",
+  "name": "@c4co/cn-react-coda",
+  "version": "1.0.1",
   "description": "Simple component to document react components",
   "author": "C4co",
   "license": "MIT",
-  "repository": "C4co/cn-react-coda",
+  "repository": "git://github.com/C4co/cn-react-coda.git",
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
