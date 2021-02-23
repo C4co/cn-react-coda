@@ -21,7 +21,7 @@
 
 ### Install
 ```
-npm install @c4co/cn-react-coda
+npm install cn-react-coda
 ```
 
 ### Development
