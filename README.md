@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="react" src="https://i.imgur.com/UUzvrB4.png" width="130" />
+  <img alt="react" src="https://i.imgur.com/UUzvrB4.png" width="100" />
 </p>
 
 <h1 align="center">
