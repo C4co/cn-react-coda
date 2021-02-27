@@ -27,7 +27,7 @@ const Logo = styled.img`
   width: 100%;
   margin: 0 auto;
   display: block;
-  max-width: 110px;
+  max-width: 80px;
 `
 
 const Description = styled.span`
