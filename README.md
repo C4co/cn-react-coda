@@ -10,8 +10,8 @@
 
 > A simple react component to write code snippets
 
-<p align="center">
-  <img width="800" src="https://i.imgur.com/Bwa0oa0.png"/>
+<p>
+  <img width="740" src="https://i.imgur.com/Bwa0oa0.png"/>
 </p>
 
 
@@ -67,9 +67,9 @@ export default function App(){
 
 ### What's inside
 
-- [Styled component](https://styled-components.com/)
+- [styled component](https://styled-components.com/)
 - [hightlight.js](https://highlightjs.org/)
-- [React Syntax Highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter)
+- [react syntax highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter)
 - [polished](https://polished.js.org/)
 - [jetbrains-mono](https://www.jetbrains.com/pt-br/lp/mono/)
 
