@@ -5,7 +5,11 @@ import SyntaxHighlighter from "react-syntax-highlighter"
 import {BiCode} from "react-icons/bi"
 import {DARK, LIGHT} from "./themes"
 
-const CodaContainer = styled.div`
+type CodaContainerProps = {
+  fontSize?: number
+}
+
+const CodaContainer = styled.div<CodaContainerProps>`
   overflow: hidden;
   position: relative;
 
@@ -13,7 +17,6 @@ const CodaContainer = styled.div`
     font-family: "JetBrains Mono", monospace !important;
     background-color: none;
     font-weight: normal;
-    font-size: 18px;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -23,6 +26,12 @@ const CodaContainer = styled.div`
     border: none !important;
     line-height: 1.5em;
   }
+
+  ${(props) =>
+    props.fontSize &&
+    css`
+      font-size: ${props.fontSize}px;
+    `}
 
   ${(props) => css`
     background-color: ${props.theme.BACKGROUND};
@@ -102,6 +111,28 @@ const CodaInput = styled.textarea`
   right: 0px;
 `
 
+const CodaFontSize = styled.button`
+  color: white;
+  font-size: 11px;
+  display: flex;
+  padding: 5px 12px 4px 12px;
+  color: #ffffff;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  margin-right: 5px;
+  position: relative;
+
+  &:active {
+    top: -2px;
+  }
+
+  ${(props) => css`
+    background: ${props.theme.INFO};
+  `}
+`
+
 interface CodaCopyProps {
   copied: boolean
 }
@@ -140,6 +171,8 @@ interface CodaProps {
 export function Coda(props: CodaProps) {
   const input = useRef<HTMLTextAreaElement>(null)
   const [copied, setCopied] = useState(false)
+  const [fontSize, setFontSize] = useState(18)
+
   let theme = DARK
 
   if (props.theme === "light") {
@@ -148,6 +181,18 @@ export function Coda(props: CodaProps) {
 
   if (props.theme === "dark") {
     theme = DARK
+  }
+
+  function IncrementFontSize() {
+    if (fontSize < 22) {
+      setFontSize(fontSize + 1)
+    }
+  }
+
+  function DecrementFontSize() {
+    if (fontSize > 14) {
+      setFontSize(fontSize - 1)
+    }
   }
 
   function copyToClipboard() {
@@ -162,7 +207,7 @@ export function Coda(props: CodaProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <CodaContainer data-testid="coda-container">
+      <CodaContainer fontSize={fontSize} data-testid="coda-container">
         <CodaContent data-testid="coda-content">
           {props.title && (
             <CodaTitle data-testid="coda-title">
@@ -180,12 +225,25 @@ export function Coda(props: CodaProps) {
           </CodaCode>
 
           <CodaFooter data-testid="coda-footer">
+            <CodaFontSize
+              data-testid="coda-fontsize-decrement"
+              onClick={DecrementFontSize}>
+              A-
+            </CodaFontSize>
+
+            <CodaFontSize
+              data-testid="coda-fontsize-increment"
+              onClick={IncrementFontSize}>
+              A+
+            </CodaFontSize>
+
             <CodaInput
               data-testid="coda-input"
               readOnly
               ref={input}
               value={props.code.trim()}
             />
+
             <CodaCopy
               data-testid="coda-copy"
               copied={copied}
