@@ -10,11 +10,6 @@
 
 > A simple react component to write code snippets
 
-<p>
-  <img width="740" src="https://i.imgur.com/Bwa0oa0.png"/>
-</p>
-
-
 ### Install
 ```
 npm install cn-react-coda
