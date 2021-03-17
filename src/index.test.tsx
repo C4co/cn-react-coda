@@ -103,8 +103,9 @@ describe("<Coda/> component", () => {
   test("Check increment font-size", () => {
     const {getByTestId} = render(<Coda code={Example} lang="javascript" />)
     expect(getByTestId("coda-container")).toHaveStyleRule("font-size", "18px")
+    const clicks: number[] = [1, 2, 3, 4, 5, 6]
 
-    Array<number>(1, 2, 3, 4, 5, 6).forEach(() => {
+    clicks.forEach(() => {
       fireEvent.click(getByTestId("coda-fontsize-increment"))
     })
 
@@ -114,8 +115,9 @@ describe("<Coda/> component", () => {
   test("Check decrement font-size", () => {
     const {getByTestId} = render(<Coda code={Example} lang="javascript" />)
     expect(getByTestId("coda-container")).toHaveStyleRule("font-size", "18px")
+    const clicks: number[] = [1, 2, 3, 4, 5, 6]
 
-    Array<number>(1, 2, 3, 4, 5, 6).forEach(() => {
+    clicks.forEach(() => {
       fireEvent.click(getByTestId("coda-fontsize-decrement"))
     })
 
