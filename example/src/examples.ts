@@ -157,7 +157,7 @@ int main(int argc, char *argv[]) {
   for (auto i = 0; i < 0xFFFF; i++)
     cout << "Hello, World!" << endl;
 
-  char c = '\n';
+  char c = '\\n';
   unordered_map <string, vector<string> > m;
   m["key"] = "\\\\"; // this is an error
 
