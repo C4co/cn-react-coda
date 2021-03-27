@@ -3,8 +3,8 @@ import "@testing-library/jest-dom/extend-expect"
 import "jest-styled-components"
 import {render, fireEvent} from "@testing-library/react"
 import React from "react"
-import {Coda} from "./index"
-import {DARK, LIGHT} from "./themes"
+import {Coda} from "./coda"
+import {DARK, LIGHT} from "../themes"
 
 const Example = `
   function fn(){
