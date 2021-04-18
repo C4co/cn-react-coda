@@ -62,7 +62,6 @@ export function Coda(props: CodaProps) {
     <ThemeProvider theme={theme}>
       <CodaContainer fontSize={fontSize} data-testid="coda-container">
         <CodaContent data-testid="coda-content">
-
           {/* Title */}
           {props.title && (
             <CodaTitle data-testid="coda-title">
@@ -108,7 +107,6 @@ export function Coda(props: CodaProps) {
             style={theme.SCHEME}>
             {props.code.trim()}
           </CodaCode>
-
         </CodaContent>
       </CodaContainer>
     </ThemeProvider>

@@ -21,7 +21,6 @@ describe("<Coda/> component", () => {
     expect(getByTestId("coda-container")).toBeInTheDocument()
     expect(getByTestId("coda-content")).toBeInTheDocument()
     expect(getByTestId("coda-code")).toBeInTheDocument()
-    expect(getByTestId("coda-footer")).toBeInTheDocument()
     expect(getByTestId("coda-input")).toBeInTheDocument()
     expect(getByTestId("coda-copy")).toBeInTheDocument()
   })
@@ -44,10 +43,6 @@ describe("<Coda/> component", () => {
       "background-color",
       DARK.BACKGROUND
     )
-    expect(getByTestId("coda-container")).toHaveStyleRule(
-      "border",
-      `solid ${DARK.BORDERS} 1px`
-    )
   })
 
   test("Check light theme", () => {
@@ -59,10 +54,6 @@ describe("<Coda/> component", () => {
       "background-color",
       LIGHT.BACKGROUND
     )
-    expect(getByTestId("coda-container")).toHaveStyleRule(
-      "border",
-      `solid ${LIGHT.BORDERS} 1px`
-    )
   })
 
   test("Check dark theme", () => {
@@ -73,10 +64,6 @@ describe("<Coda/> component", () => {
     expect(getByTestId("coda-container")).toHaveStyleRule(
       "background-color",
       DARK.BACKGROUND
-    )
-    expect(getByTestId("coda-container")).toHaveStyleRule(
-      "border",
-      `solid ${DARK.BORDERS} 1px`
     )
   })
 

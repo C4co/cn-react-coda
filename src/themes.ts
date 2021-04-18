@@ -21,7 +21,7 @@ export const LIGHT = {
   NUMBERS: darken(0.5, "#FFFFFF"),
   TITLE: darken(0.7, "#FFFFFF"),
   SCROLL_TRACK: darken(0.1, "#FFFFFF"),
-  SCROLL_THUMB: darken(0.20, "#FFFFFF"),
+  SCROLL_THUMB: darken(0.2, "#FFFFFF"),
   BUTTON: "#0099cc",
   BUTTON_TEXT: "#FFFFFF",
   BUTTON_SUCCESS: "#00b057",
