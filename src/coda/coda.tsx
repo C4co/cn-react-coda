@@ -8,7 +8,7 @@ import {
   CodaContent,
   CodaCopy,
   CodaFontSize,
-  CodaFooter,
+  CodaBar,
   CodaIcon,
   CodaInput,
   CodaTitle
@@ -62,6 +62,8 @@ export function Coda(props: CodaProps) {
     <ThemeProvider theme={theme}>
       <CodaContainer fontSize={fontSize} data-testid="coda-container">
         <CodaContent data-testid="coda-content">
+
+          {/* Title */}
           {props.title && (
             <CodaTitle data-testid="coda-title">
               <CodaIcon data-testid="coda-icon" />
@@ -69,15 +71,8 @@ export function Coda(props: CodaProps) {
             </CodaTitle>
           )}
 
-          <CodaCode
-            data-testid="coda-code"
-            showLineNumbers
-            language={props.lang}
-            style={theme.SCHEME}>
-            {props.code.trim()}
-          </CodaCode>
-
-          <CodaFooter data-testid="coda-footer">
+          {/* Bar */}
+          <CodaBar data-testid="coda-footer">
             <CodaFontSize
               data-testid="coda-fontsize-decrement"
               onClick={DecrementFontSize}>
@@ -103,7 +98,17 @@ export function Coda(props: CodaProps) {
               onClick={copyToClipboard}>
               {copied ? "Copied!" : "Copy code"}
             </CodaCopy>
-          </CodaFooter>
+          </CodaBar>
+
+          {/* Content */}
+          <CodaCode
+            data-testid="coda-code"
+            showLineNumbers
+            language={props.lang}
+            style={theme.SCHEME}>
+            {props.code.trim()}
+          </CodaCode>
+
         </CodaContent>
       </CodaContainer>
     </ThemeProvider>

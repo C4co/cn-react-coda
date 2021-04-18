@@ -23,11 +23,15 @@ const Content = styled.div`
   margin: 0 auto;
 `
 
-const Logo = styled.img`
-  width: 100%;
-  margin: 0 auto;
-  display: block;
-  max-width: 80px;
+const Title = styled.h1`
+  font-size: 3.4em;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 300;
+
+  ${props => css`
+    color: ${props.theme.TEXT};
+  `}
 `
 
 const Description = styled.span`
@@ -66,6 +70,7 @@ const Feature = styled.div`
   padding: 6px 10px 6px 10px;
   margin-bottom: 5px;
   align-items: center;
+  border-radius: 3px;
 
   ${props => css`
     color: ${props.theme.TEXT};
@@ -154,9 +159,8 @@ export default function App(){
     <ThemeProvider theme={theme}>
       <Container>
         <Content>
-          <Logo src={theme.LOGO}/>
 
-          <br/><br/>
+          <Title> CODA </Title>
 
           <Description>
             A simple react component to write code snipets

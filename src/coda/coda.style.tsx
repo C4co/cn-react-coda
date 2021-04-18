@@ -9,6 +9,8 @@ type CodaContainerProps = {
 export const CodaContainer = styled.div<CodaContainerProps>`
   overflow: hidden;
   position: relative;
+  padding: 8px;
+  border-radius: 10px;
 
   * {
     font-family: "JetBrains Mono", monospace !important;
@@ -32,7 +34,6 @@ export const CodaContainer = styled.div<CodaContainerProps>`
 
   ${(props) => css`
     background-color: ${props.theme.BACKGROUND};
-    border: solid ${props.theme.BORDERS} 1px;
   `}
 `
 
@@ -49,7 +50,6 @@ export const CodaTitle = styled.span`
 
   ${(props) => css`
     color: ${props.theme.TITLE};
-    border-bottom: solid ${props.theme.BORDERS} 1px;
   `}
 `
 
@@ -68,10 +68,12 @@ export const CodaCode = styled(SyntaxHighlighter)`
 
     &::-webkit-scrollbar-track {
       background: ${props.theme.SCROLL_TRACK};
+      border-radius: 20px;
     }
 
     &::-webkit-scrollbar-thumb {
       background: ${props.theme.SCROLL_THUMB};
+      border-radius: 20px;
     }
 
     .react-syntax-highlighter-line-number {
@@ -88,15 +90,10 @@ export const CodaIcon = styled(BiCode)`
   font-size: 20px;
 `
 
-export const CodaFooter = styled.footer`
+export const CodaBar = styled.footer`
   width: 100%;
   display: flex;
-  justify-content: flex-end;
-  padding: 8px;
-
-  ${(props) => css`
-    border-top: solid ${props.theme.BORDERS} 1px;
-  `}
+  padding: 15px;
 `
 
 export const CodaInput = styled.textarea`
@@ -109,11 +106,9 @@ export const CodaInput = styled.textarea`
 `
 
 export const CodaFontSize = styled.button`
-  color: white;
   font-size: 11px;
   display: flex;
   padding: 5px 12px 4px 12px;
-  color: #ffffff;
   border-radius: 2px;
   outline: none;
   border: none;
@@ -126,7 +121,8 @@ export const CodaFontSize = styled.button`
   }
 
   ${(props) => css`
-    background: ${props.theme.INFO};
+    background: ${props.theme.BUTTON};
+    color: ${props.theme.BUTTON_TEXT};
   `}
 `
 
@@ -138,7 +134,6 @@ export const CodaCopy = styled.button<CodaCopyProps>`
   border: none;
   font-weight: bold;
   border-radius: 2px;
-  color: #ffffff;
   text-transform: uppercase;
   outline: none;
   font-size: 11px;
@@ -148,12 +143,14 @@ export const CodaCopy = styled.button<CodaCopyProps>`
   padding: 5px 12px 4px 12px;
 
   ${(props) => css`
-    background: ${props.theme.INFO};
+    background: ${props.theme.BUTTON};
+    color: ${props.theme.BUTTON_TEXT};
   `}
 
   ${(props) =>
     props.copied &&
     css`
-      background-color: ${props.theme.SUCCESS};
+      background-color: ${props.theme.BUTTON_SUCCESS};
+      color: ${props.theme.BUTTON_SUCCESS_TEXT};
     `}
 `
