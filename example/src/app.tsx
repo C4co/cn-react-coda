@@ -19,7 +19,7 @@ const Container = styled.div`
 const Content = styled.div`
   max-width: 800px;
   width: 100%;
-  padding: 50px 10px 50px 10px;
+  padding: 50px 20px 50px 20px;
   margin: 0 auto;
 `
 
@@ -47,7 +47,7 @@ const Description = styled.span`
 const Install = styled.div`
   text-align: center;
   padding: 10px;
-  font-size: 1.7em;
+  font-size: 1.3em;
 
   ${props => css`
     color: ${props.theme.INFO};
@@ -67,10 +67,9 @@ const BigTitle = styled.h1`
 
 const Feature = styled.div`
   display: flex;
-  padding: 6px 10px 6px 10px;
+  padding: 12px;
   margin-bottom: 5px;
   align-items: center;
-  border-radius: 3px;
 
   ${props => css`
     color: ${props.theme.TEXT};
@@ -79,8 +78,8 @@ const Feature = styled.div`
 `
 
 const FeatureIcon = styled(BiCheck)`
-  font-size: 30px;
-  margin-right: 20px;
+  font-size: 20px;
+  margin-right: 10px;
 
   ${props => css`
     color: ${props.theme.SUCCESS};
@@ -220,17 +219,17 @@ export default function App(){
 
           <br/>
 
-          <Coda lang="html" theme={theme.CODA_THEME} title="example.html" code={HTML_XML} />
+          <Coda controls={true} lang="html" theme={theme.CODA_THEME} title="example.html" code={HTML_XML} />
           <br/>
-          <Coda lang="css" theme={theme.CODA_THEME} title="example.css" code={CSS} />
+          <Coda controls={true} lang="css" theme={theme.CODA_THEME} title="example.css" code={CSS} />
           <br/>
-          <Coda lang="javascript" theme={theme.CODA_THEME} title="example.js" code={JAVASCRIPT} />
+          <Coda controls={true} lang="javascript" theme={theme.CODA_THEME} title="example.js" code={JAVASCRIPT} />
           <br/>
-          <Coda lang="ruby" theme={theme.CODA_THEME} title="example.rb" code={RUBY} />
+          <Coda controls={true} lang="ruby" theme={theme.CODA_THEME} title="example.rb" code={RUBY} />
           <br/>
-          <Coda lang="php" theme={theme.CODA_THEME} title="example.php" code={PHP} />
+          <Coda controls={true} lang="php" theme={theme.CODA_THEME} title="example.php" code={PHP} />
           <br/>
-          <Coda lang="c++" theme={theme.CODA_THEME} title="example.cpp" code={C_PLUS_PLUS} />
+          <Coda controls={true} lang="c++" theme={theme.CODA_THEME} title="example.cpp" code={C_PLUS_PLUS} />
         </Content>
       </Container>
     </ThemeProvider>
