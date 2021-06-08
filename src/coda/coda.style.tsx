@@ -6,11 +6,15 @@ type CodaContainerProps = {
   fontSize?: number
 }
 
+export const CodaHeader = styled.div`
+  width: 100%;
+  padding: 5px !important;
+`
+
 export const CodaContainer = styled.div<CodaContainerProps>`
   overflow: hidden;
   position: relative;
   padding: 8px;
-  border-radius: 10px;
 
   * {
     font-family: "JetBrains Mono", monospace !important;
@@ -45,8 +49,8 @@ export const CodaContent = styled.div`
 export const CodaTitle = styled.span`
   display: flex;
   align-items: center;
-  padding: 8px 14px 8px 14px;
   font-size: 15px;
+  margin-bottom: 15px;
 
   ${(props) => css`
     color: ${props.theme.TITLE};
@@ -90,10 +94,8 @@ export const CodaIcon = styled(BiCode)`
   font-size: 20px;
 `
 
-export const CodaBar = styled.footer`
-  width: 100%;
+export const CodaControls = styled.footer`
   display: flex;
-  padding: 15px;
 `
 
 export const CodaInput = styled.textarea`
