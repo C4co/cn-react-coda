@@ -20,9 +20,6 @@ describe("<Coda/> component", () => {
 
     expect(getByTestId("coda-container")).toBeInTheDocument()
     expect(getByTestId("coda-content")).toBeInTheDocument()
-    expect(getByTestId("coda-code")).toBeInTheDocument()
-    expect(getByTestId("coda-input")).toBeInTheDocument()
-    expect(getByTestId("coda-copy")).toBeInTheDocument()
   })
 
   test("Check title", () => {
@@ -67,10 +64,20 @@ describe("<Coda/> component", () => {
     )
   })
 
+  test("Check controls", () => {
+    const {getByTestId} = render(
+      <Coda controls code={Example} theme="dark" lang="javascript" />
+    )
+
+    expect(getByTestId("coda-controls")).toBeInTheDocument()
+    expect(getByTestId("coda-input")).toBeInTheDocument()
+  })
+
   test("Check copy to clipboard", () => {
     Object.defineProperty(document, "execCommand", {value: jest.fn()})
+
     const {getByTestId} = render(
-      <Coda code={Example} theme="light" lang="javascript" />
+      <Coda controls code={Example} theme="light" lang="javascript" />
     )
 
     expect(getByTestId("coda-copy")).toHaveTextContent("Copy code")
@@ -79,7 +86,9 @@ describe("<Coda/> component", () => {
   })
 
   test("Check copy font-size buttons", () => {
-    const {getByTestId} = render(<Coda code={Example} lang="javascript" />)
+    const {getByTestId} = render(
+      <Coda controls code={Example} lang="javascript" />
+    )
 
     expect(getByTestId("coda-fontsize-increment")).toBeInTheDocument()
     expect(getByTestId("coda-fontsize-increment")).toHaveTextContent("A+")
@@ -88,8 +97,12 @@ describe("<Coda/> component", () => {
   })
 
   test("Check increment font-size", () => {
-    const {getByTestId} = render(<Coda code={Example} lang="javascript" />)
+    const {getByTestId} = render(
+      <Coda controls code={Example} lang="javascript" />
+    )
+
     expect(getByTestId("coda-container")).toHaveStyleRule("font-size", "18px")
+
     const clicks: number[] = [1, 2, 3, 4, 5, 6]
 
     clicks.forEach(() => {
@@ -100,8 +113,12 @@ describe("<Coda/> component", () => {
   })
 
   test("Check decrement font-size", () => {
-    const {getByTestId} = render(<Coda code={Example} lang="javascript" />)
+    const {getByTestId} = render(
+      <Coda controls code={Example} lang="javascript" />
+    )
+
     expect(getByTestId("coda-container")).toHaveStyleRule("font-size", "18px")
+
     const clicks: number[] = [1, 2, 3, 4, 5, 6]
 
     clicks.forEach(() => {
