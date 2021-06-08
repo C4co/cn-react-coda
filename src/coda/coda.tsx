@@ -8,14 +8,16 @@ import {
   CodaContent,
   CodaCopy,
   CodaFontSize,
-  CodaBar,
+  CodaControls,
   CodaIcon,
   CodaInput,
-  CodaTitle
+  CodaTitle,
+  CodaHeader
 } from "./coda.style"
 
 interface CodaProps {
   code: string
+  controls?: boolean
   title?: string | boolean
   lang?: string
   theme: string
@@ -62,44 +64,51 @@ export function Coda(props: CodaProps) {
     <ThemeProvider theme={theme}>
       <CodaContainer fontSize={fontSize} data-testid="coda-container">
         <CodaContent data-testid="coda-content">
-          {/* Title */}
-          {props.title && (
-            <CodaTitle data-testid="coda-title">
-              <CodaIcon data-testid="coda-icon" />
-              {props.title}
-            </CodaTitle>
-          )}
+          <CodaHeader>
+            {/* Title */}
 
-          {/* Bar */}
-          <CodaBar data-testid="coda-footer">
-            <CodaFontSize
-              data-testid="coda-fontsize-decrement"
-              onClick={DecrementFontSize}>
-              A-
-            </CodaFontSize>
+            {props.title && (
+              <CodaTitle data-testid="coda-title">
+                <CodaIcon data-testid="coda-icon" />
+                {props.title}
+              </CodaTitle>
+            )}
 
-            <CodaFontSize
-              data-testid="coda-fontsize-increment"
-              onClick={IncrementFontSize}>
-              A+
-            </CodaFontSize>
+            {/* Bar */}
 
-            <CodaInput
-              data-testid="coda-input"
-              readOnly
-              ref={input}
-              value={props.code.trim()}
-            />
+            {props.controls && (
+              <CodaControls data-testid="coda-controls">
+                <CodaFontSize
+                  data-testid="coda-fontsize-decrement"
+                  onClick={DecrementFontSize}>
+                  A-
+                </CodaFontSize>
 
-            <CodaCopy
-              data-testid="coda-copy"
-              copied={copied}
-              onClick={copyToClipboard}>
-              {copied ? "Copied!" : "Copy code"}
-            </CodaCopy>
-          </CodaBar>
+                <CodaFontSize
+                  data-testid="coda-fontsize-increment"
+                  onClick={IncrementFontSize}>
+                  A+
+                </CodaFontSize>
+
+                <CodaInput
+                  data-testid="coda-input"
+                  readOnly
+                  ref={input}
+                  value={props.code.trim()}
+                />
+
+                <CodaCopy
+                  data-testid="coda-copy"
+                  copied={copied}
+                  onClick={copyToClipboard}>
+                  {copied ? "Copied!" : "Copy code"}
+                </CodaCopy>
+              </CodaControls>
+            )}
+          </CodaHeader>
 
           {/* Content */}
+
           <CodaCode
             data-testid="coda-code"
             showLineNumbers
@@ -115,6 +124,7 @@ export function Coda(props: CodaProps) {
 
 Coda.defaultProps = {
   lang: "jsx",
+  controls: false,
   title: false,
   theme: "dark"
 }
