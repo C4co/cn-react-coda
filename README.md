@@ -56,7 +56,7 @@ export default function App(){
 | Name  | Type                 | Default | Required | Description                                                                                      |
 |-------|----------------------|---------|----------|--------------------------------------------------------------------------------------------------|
 | **code**  | string               | null    | yes      | Code snippet to be showed                                                                        |
-| **constrols**  | boolean               | false    | no      | Display controls(font-size and copycode)                                                   |
+| **controls**  | boolean               | false    | no      | Display controls(font-size and copycode)                                                   |
 | **title** | string               | null    | no       | Snippet title                                                                                    |
 | **theme** | string (dark, light) | dark    | no       | Component theme                                                                                  |
 | **lang**  | string               | jsx     | no       | Programing language, too see all suppport see [hightlight.js](https://highlightjs.org/static/demo/) |
