@@ -36,9 +36,9 @@ export const CodaContainer = styled.div<CodaContainerProps>`
     border: none !important;
     line-height: 1.5em;
     font-size: 18px;
-    font-family: 'Courier Prime', monospace;
+    font-family: "Courier Prime", monospace;
 
-    @media(max-width: 600px){
+    @media (max-width: 600px) {
       font-size: 14px;
     }
   }
@@ -53,8 +53,8 @@ export const CodaContainer = styled.div<CodaContainerProps>`
     background-color: ${props.theme.BACKGROUND};
   `}
 
-  &:hover{
-    .coda__controls{
+  &:hover {
+    .coda__controls {
       display: flex;
     }
   }

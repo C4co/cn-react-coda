@@ -48,12 +48,9 @@ export function Coda(props: CodaProps) {
     <ThemeProvider theme={theme}>
       <CodaContainer data-testid="coda-container">
         <CodaContent data-testid="coda-content">
-
           {props.title && (
             <CodaHeader data-testid="coda-header">
-              <CodaTitle data-testid="coda-title">
-                {props.title}
-              </CodaTitle>
+              <CodaTitle data-testid="coda-title">{props.title}</CodaTitle>
             </CodaHeader>
           )}
 
@@ -66,7 +63,6 @@ export function Coda(props: CodaProps) {
             style={theme.SCHEME}>
             {props.code.trim()}
           </CodaCode>
-
         </CodaContent>
 
         {/* Controls */}
@@ -86,7 +82,6 @@ export function Coda(props: CodaProps) {
             {copied ? "Copied!" : "Copy code"}
           </CodaCopy>
         </CodaControls>
-
       </CodaContainer>
     </ThemeProvider>
   )
