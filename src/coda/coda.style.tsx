@@ -1,6 +1,5 @@
 import styled, {css} from "styled-components"
 import SyntaxHighlighter from "react-syntax-highlighter"
-import {BiCode} from "react-icons/bi"
 
 type CodaContainerProps = {
   fontSize?: number
@@ -8,16 +7,24 @@ type CodaContainerProps = {
 
 export const CodaHeader = styled.div`
   width: 100%;
-  padding: 5px !important;
+  display: flex;
+  gap: 20px;
+  padding: 8px 8px 8px 8px !important;
+  justify-content: space-between;
+
+  ${(props) => css`
+    border-bottom: ${props.theme.BORDER} solid 1px;
+  `}
 `
 
 export const CodaContainer = styled.div<CodaContainerProps>`
   overflow: hidden;
   position: relative;
-  padding: 8px;
+  padding: 6px 14px;
+  text-align: left;
+  border-radius: 3px;
 
   * {
-    font-family: "JetBrains Mono", monospace !important;
     background-color: none;
     font-weight: normal;
     box-sizing: border-box;
@@ -28,6 +35,12 @@ export const CodaContainer = styled.div<CodaContainerProps>`
   pre {
     border: none !important;
     line-height: 1.5em;
+    font-size: 18px;
+    font-family: 'Courier Prime', monospace;
+
+    @media(max-width: 600px){
+      font-size: 14px;
+    }
   }
 
   ${(props) =>
@@ -39,18 +52,23 @@ export const CodaContainer = styled.div<CodaContainerProps>`
   ${(props) => css`
     background-color: ${props.theme.BACKGROUND};
   `}
+
+  &:hover{
+    .coda__controls{
+      display: flex;
+    }
+  }
 `
 
 export const CodaContent = styled.div`
-  position: relative;
   width: 100%;
 `
 
 export const CodaTitle = styled.span`
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 15px;
-  margin-bottom: 15px;
 
   ${(props) => css`
     color: ${props.theme.TITLE};
@@ -89,13 +107,16 @@ export const CodaCode = styled(SyntaxHighlighter)`
   `}
 `
 
-export const CodaIcon = styled(BiCode)`
-  margin-right: 10px;
-  font-size: 20px;
-`
-
 export const CodaControls = styled.footer`
   display: flex;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 10;
+  padding: 3px;
+  gap: 3px;
+  display: none;
+  background: black;
 `
 
 export const CodaInput = styled.textarea`
@@ -107,27 +128,6 @@ export const CodaInput = styled.textarea`
   right: 0px;
 `
 
-export const CodaFontSize = styled.button`
-  font-size: 11px;
-  display: flex;
-  padding: 5px 12px 4px 12px;
-  border-radius: 2px;
-  outline: none;
-  border: none;
-  font-weight: bold;
-  margin-right: 5px;
-  position: relative;
-
-  &:active {
-    top: -2px;
-  }
-
-  ${(props) => css`
-    background: ${props.theme.BUTTON};
-    color: ${props.theme.BUTTON_TEXT};
-  `}
-`
-
 interface CodaCopyProps {
   copied: boolean
 }
@@ -135,14 +135,13 @@ interface CodaCopyProps {
 export const CodaCopy = styled.button<CodaCopyProps>`
   border: none;
   font-weight: bold;
-  border-radius: 2px;
   text-transform: uppercase;
   outline: none;
   font-size: 11px;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 5px 12px 4px 12px;
+  padding: 7px 10px 5px 10px;
 
   ${(props) => css`
     background: ${props.theme.BUTTON};
