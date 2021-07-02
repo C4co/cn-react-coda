@@ -27,6 +27,7 @@ describe("<Coda/> component", () => {
       <Coda title="example.js" code={Example} theme="dark" lang="javascript" />
     )
 
+    expect(getByTestId("coda-header")).toBeInTheDocument()
     expect(getByTestId("coda-title")).toBeInTheDocument()
     expect(getByTestId("coda-title")).toHaveTextContent("example.js")
   })
@@ -83,48 +84,5 @@ describe("<Coda/> component", () => {
     expect(getByTestId("coda-copy")).toHaveTextContent("Copy code")
     fireEvent.click(getByTestId("coda-copy"))
     expect(getByTestId("coda-copy")).toHaveTextContent("Copied!")
-  })
-
-  test("Check copy font-size buttons", () => {
-    const {getByTestId} = render(
-      <Coda controls code={Example} lang="javascript" />
-    )
-
-    expect(getByTestId("coda-fontsize-increment")).toBeInTheDocument()
-    expect(getByTestId("coda-fontsize-increment")).toHaveTextContent("A+")
-    expect(getByTestId("coda-fontsize-decrement")).toBeInTheDocument()
-    expect(getByTestId("coda-fontsize-decrement")).toHaveTextContent("A-")
-  })
-
-  test("Check increment font-size", () => {
-    const {getByTestId} = render(
-      <Coda controls code={Example} lang="javascript" />
-    )
-
-    expect(getByTestId("coda-container")).toHaveStyleRule("font-size", "18px")
-
-    const clicks: number[] = [1, 2, 3, 4, 5, 6]
-
-    clicks.forEach(() => {
-      fireEvent.click(getByTestId("coda-fontsize-increment"))
-    })
-
-    expect(getByTestId("coda-container")).toHaveStyleRule("font-size", "22px")
-  })
-
-  test("Check decrement font-size", () => {
-    const {getByTestId} = render(
-      <Coda controls code={Example} lang="javascript" />
-    )
-
-    expect(getByTestId("coda-container")).toHaveStyleRule("font-size", "18px")
-
-    const clicks: number[] = [1, 2, 3, 4, 5, 6]
-
-    clicks.forEach(() => {
-      fireEvent.click(getByTestId("coda-fontsize-decrement"))
-    })
-
-    expect(getByTestId("coda-container")).toHaveStyleRule("font-size", "14px")
   })
 })
