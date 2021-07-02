@@ -18,7 +18,10 @@ export default function App(){
     />
   )
 }
+`
 
+export const IMPORT_CODA = `
+import { Coda } from "cn-react-coda"
 `
 
 export const HTML_XML = `
